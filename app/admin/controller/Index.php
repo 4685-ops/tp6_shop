@@ -11,8 +11,6 @@ class Index extends BaseController
     {
         return View::fetch('/index/index');
     }
-
-
     public function welcome()
     {
         return View::fetch('/index/welcome');
