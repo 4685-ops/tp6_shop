@@ -11,4 +11,9 @@ class Login extends BaseController
     {
         return View::fetch('/login/login');
     }
+
+    public function check()
+    {
+        halt('11');
+    }
 }

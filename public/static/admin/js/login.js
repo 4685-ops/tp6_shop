@@ -22,18 +22,7 @@ layui.use(['form'], function () {
             layer.msg('验证码不能为空');
             return false;
         }
-        // 验证码 校验
-        var val = $(".input-val").val().toLowerCase();
-        var num = show_num.join("");
-        if (val != num) {
-            layer.msg('验证码错误！请重新输入！');
-            draw(show_num);
-            return false;
-        }
-
-        window.location = '../index.html';
-        return false;
-        $(".input-val").val('');
+        let url = "/admin/login/check";
         $.ajax({
             url,
             data,
