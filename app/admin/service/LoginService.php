@@ -14,10 +14,6 @@ use think\facade\Session;
 
 class LoginService
 {
-    /**
-     * @throws ParamsException
-     * @throws UserException
-     */
     public function login(array $paramsData): bool
     {
 
