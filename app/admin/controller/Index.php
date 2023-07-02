@@ -4,8 +4,9 @@ namespace app\admin\controller;
 
 use app\BaseController;
 use think\facade\View;
+use think\facade\Session;
 
-class Index extends BaseController
+class Index extends AdminBase
 {
     public function index()
     {
@@ -16,3 +17,5 @@ class Index extends BaseController
         return View::fetch('/index/welcome');
     }
 }
+
+

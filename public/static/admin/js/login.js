@@ -22,37 +22,22 @@ layui.use(['form'], function () {
             layer.msg('验证码不能为空');
             return false;
         }
-        // 验证码 校验
-        var val = $(".input-val").val().toLowerCase();
-        var num = show_num.join("");
-        if (val != num) {
-            layer.msg('验证码错误！请重新输入！');
-            draw(show_num);
-            return false;
-        }
-
-        window.location = '../index.html';
-        return false;
-        $(".input-val").val('');
+        let url = '/admin/login/check';
         $.ajax({
             url,
             data,
             type: "POST",
             success(res) {
-                if (res.status == 200) {
+                if (res.error_code == 0) {
                     layer.msg('登录成功', function () {
-                        window.location = '/xiaozhu/index.html';
+                        window.location = '/admin/index/index';
                     });
+                } else {
+                    layer.msg(res.msg);
+                    return false;
                 }
             }
         })
         return false;
     });
 });
-$(function () {
-    // location.href  =  "http://www.baidu.com";
-    draw(show_num);
-    $("#canvas").on('click', function () {
-        draw(show_num);
-    })
-})

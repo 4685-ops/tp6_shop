@@ -11,8 +11,8 @@
 
 // [ 应用入口文件 ]
 namespace think;
-
 require __DIR__ . '/../vendor/autoload.php';
+define('LOG_PATH', __DIR__ . '/../logs/');
 
 // 执行HTTP应用并响应
 $http = (new App())->http;
