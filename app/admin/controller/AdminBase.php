@@ -12,14 +12,4 @@ class AdminBase extends BaseController
         parent::initialize();
     }
 
-    public function isLogin(): bool
-    {
-        if (Session::get(config('app.login_user_info'))) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
 }
