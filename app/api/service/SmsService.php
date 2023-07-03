@@ -6,6 +6,7 @@ use app\api\validate\UserValidate;
 use app\business\sms\ClassArr;
 use app\lib\exception\SuccessMessage;
 use app\lib\utils\RandNumberUtils;
+use think\Cache;
 
 class SmsService
 {
@@ -24,7 +25,7 @@ class SmsService
 
         if ($sms) {
             //写到缓存
-
+            Cache();
         }
 
         throw new SuccessMessage([
