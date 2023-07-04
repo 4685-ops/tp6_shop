@@ -12,6 +12,7 @@ class Index extends AdminBase
     {
         return View::fetch('/index/index');
     }
+
     public function welcome()
     {
         return View::fetch('/index/welcome');
