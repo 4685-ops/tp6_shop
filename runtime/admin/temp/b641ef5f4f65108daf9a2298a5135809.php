@@ -1,4 +1,4 @@
-<?php /*a:1:{s:60:"E:\phpstudy_pro\WWW\tp6_shop\app\admin\view\index\index.html";i:1687262720;}*/ ?>
+<?php /*a:1:{s:60:"E:\phpstudy_pro\WWW\tp6_shop\app\admin\view\index\index.html";i:1688346378;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,9 +66,11 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;"> <i class="fa fa-dot-circle-o"></i> 页面操作</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" data-page-close="other"><i class="fa fa-window-close"></i> 关闭其他</a>
+                        <dd><a href="javascript:;" data-page-close="other"><i class="fa fa-window-close"></i>
+                            关闭其他</a>
                         </dd>
-                        <dd><a href="javascript:;" data-page-close="all"><i class="fa fa-window-close-o"></i> 关闭全部</a>
+                        <dd><a href="javascript:;" data-page-close="all"><i class="fa fa-window-close-o"></i>
+                            关闭全部</a>
                         </dd>
                     </dl>
                 </li>
@@ -92,9 +94,21 @@
         layuimini.init('/static/admin/api/init.json'); // 左菜单数据
 
         $('.login-out').on("click", function () {
-            layer.msg('退出登录成功', function () {
-                window.location = 'page/login.html';
-            });
+            let url = '/admin/out';
+            $.ajax({
+                url,
+                type: "get",
+                success(res) {
+                    if (res.error_code == 0) {
+                        layer.msg('退出登录成功', function () {
+                            window.location = '/admin/login/login';
+                        });
+                    } else {
+                        layer.msg(res.msg);
+                        return false;
+                    }
+                }
+            })
         });
     });
 </script>
