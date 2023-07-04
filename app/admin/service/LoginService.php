@@ -24,7 +24,7 @@ class LoginService
         $password = $paramsData['password'];
         $adminModel = new AdminModel();
 
-        $adminUserInfo = $adminModel->getUserInfoByWhere([
+        $adminUserInfo = $adminModel->getInfoByWhere([
             'username' => $username
         ]);
 

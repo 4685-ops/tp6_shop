@@ -3,15 +3,11 @@ namespace app\api\controller;
 
 use app\BaseController;
 
-class Index extends BaseController
+class Index extends ApiBase
 {
     public function index()
     {
         return 'hello world';
     }
 
-    public function hello($name = 'ThinkPHP6')
-    {
-        return 'hello,' . $name;
-    }
 }

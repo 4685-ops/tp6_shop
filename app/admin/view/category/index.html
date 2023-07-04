@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="{__STATIC_ADMIN_PATH__}lib/layui-v2.5.4/css/layui.css" media="all">
     <link rel="stylesheet" href="{__STATIC_ADMIN_PATH__}css/public.css" media="all">
+    <link rel="stylesheet" href="{__STATIC_ADMIN_PATH__}css/public.css" media="all">
+    <link rel="stylesheet" href="{__STATIC_ADMIN_PATH__}js/lay-module/treetable-lay/treetable.css" media="all">
     <style>
         .inoutCls {
             height: 22px;
@@ -30,187 +32,191 @@
 <body>
 <div class="layuimini-container">
     <div class="layuimini-main">
-        <button type="button" class="layui-btn add">添 加</button>
-
-        <div class="layui-form" style="margin-top: 20px;">
-            <table class="layui-table">
-                <colgroup>
-                    <col width="90">
-                    <col width="110">
-                    <col width="800">
-                    <col width="130">
-                    <col width="70">
-                    <col width="85">
-                </colgroup>
-                <thead>
-                <tr>
-                    <th>id</th>
-                    <th>一级分类</th>
-                    <th class="text-center">二 / 三级分类</th>
-                    <th class="text-center">创建时间</th>
-                    <th class="text-center">状 态</th>
-                    <th>操作管理</th>
-                </tr>
-                </thead>
-                <tbody>
-                <!--一级类目循环-->
-                <tr>
-                    <td>
-                        <div class="layui-input-inline">
-                            <input type="text" value="1" data-id="1" class="changeSort layui-input">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-input-inline">
-                            <input type="text" name="p0" autocomplete="off" class="layui-input" value="一级类目"
-                                   onchange="editCls(this,id=1,ptype=1)">
-                        </div>
-                    </td>
-                    <td>
-                        <!--二级类目循环 start-->
-                        <div class="layui-input-block" style="margin-left: 0;">
-                            <button data-ptype="2" type="button"
-                                    class="layui-btn layui-btn-primary layui-btn-sm del-child"
-                                    style="border: none;"><i class="layui-icon"></i></button>
-                            <div class="layui-input-inline">
-                                <input type="text" name="p1" style="background: #ffb800;" autocomplete="off"
-                                       class="inoutCls" onchange="editCls(this,id=1,ptype=2)" value="二级类目">
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-body ">
+                            <div class="demoTable">
+                                <div class="layui-inline layui-show-xs-block">
+                                    <input type="text" name="UserName" id="demoReload" placeholder="请输入菜单名称" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-inline layui-show-xs-block" id="demoTable">
+                                    <button class="layui-btn" id="search" data-type="reload" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+                                </div>
                             </div>
-
-                            <!-- 三级类目循环 start-->
-                            <div class="layui-input-inline">
-                                --<input type="text" name="p1" autocomplete="off" class="inoutCls"
-                                         onchange="editCls(this,id=1,ptype=3)" value="1。1">
-                            </div>
-                            <div class="layui-input-inline">
-                                --<input type="text" name="p1" autocomplete="off" class="inoutCls"
-                                         onchange="editCls(this,id=1,ptype=3)" value="1。2">
-                            </div>
-                            <div class="layui-input-inline">
-                                --<input type="text" name="p1" autocomplete="off" class="inoutCls"
-                                         onchange="editCls(this,id=1,ptype=3)" value="1。3">
-                            </div>
-                            <!-- 三级类目循环 end-->
                         </div>
 
-                        <!--二级类目循环 end-->
-                    </td>
-                    <td>2019-11-20 10:40</td>
+                        <div class="layui-card-header">
+                            <button id="btnExpandAll" class="layui-btn layui-btn-sm layui-btn-primary">
+                                <i class="layui-icon">&#xe668;</i>展开全部
+                            </button>
+                            <button id="btnFoldAll" class="layui-btn layui-btn-sm layui-btn-primary">
+                                <i class="layui-icon">&#xe66b;</i>折叠全部
+                            </button>
+                            <button class="layui-btn" id="OpenMenuAdd" ><i class="layui-icon"></i>添加</button>
+                        </div>
 
-                    <td data-id="1"><input type="checkbox" checked="" name="status" lay-skin="switch"
-                                           lay-filter="switchTest"
-                                           lay-text="ON|OFF">
-                    </td>
+                        <div class="layui-card-body layui-table-body layui-table-main">
+                            <table class="layui-hide" id="menu" lay-filter="menu"></table>
+                        </div>
 
+                        <script type="text/html" id="switchTpl">
+                            <input id="checkShow" type="checkbox" name="Show" value="{{d.id}}" lay-skin="switch" lay-text="启用|停用"{{ d.IsShow == "启用" ? "checked" : "" }} lay-filter="ShowDemo">
+                        </script>
 
-                    <td>
-                        <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete del-child" data-ptype="1"
-                           lay-event="delete" data-id="$id">删除</a>
-                    </td>
-                </tr>
-                <!--一级类目循环 end-->
-                </tbody>
-            </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="pages"></div>
+
     </div>
 
 </div>
 <script src="{__STATIC_ADMIN_PATH__}lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
 <script src="{__STATIC_ADMIN_PATH__}lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
 <script src="{__STATIC_ADMIN_PATH__}js/common.js?v5" charset="utf-8"></script>
+<script src="{__STATIC_ADMIN_PATH__}js/lay-module/treeTable.js" charset="utf-8"></script>
+<script src="{__STATIC_ADMIN_PATH__}js/lay-module/treetable-lay/treetable.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
-    layui.use(['form', 'laypage'], function () {
-        var form = layui.form
-            , laypage = layui.laypage;
+    layui.config({
+        //   base: '/js/'存放treeTable.js的文件夹
+        base: '/js/'
+    }).use(['layer', 'util', 'treeTable'], function () {
+        //var table = layui.table
+        //, form = layui.form;
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var util = layui.util;
+        var treeTable = layui.treeTable, form = layui.form;
 
-        laypage.render({ //分页
-            elem: 'pages'
-            , count: 100
-            , theme: '#FFB800'
+        // 渲染表格
+        var insTb = treeTable.render({
+            elem: '#menu',
+            url: '/admin/category/get_data',
+            toolbar: 'default',
+            height: 'full-200',
+            tree: {
+                iconIndex: 2,
+                isPidData: true,
+                idName: 'id',//父ID
+                pidName: 'parentid',//子ID
+                openName: 'open',// 是否默认展开的字段名
+                //public bool open { get; set; }open字段是bool类型
+            },
+            defaultToolbar: ['filter', 'print', 'exports'],
+            cols: [[
+                { type: 'checkbox', fixed: 'left' }
+                , { field: 'id', title: 'ID', fixed: 'left', unresize: true, sort: true, hide: true }
+                , { field: 'menuname', title: '菜单名称', edit: 'text' }
+                , { field: 'parentid', title: '父ID', hide: true }
+                , { field: 'remark', title: '备注', edit: 'text' }
+                , { field: 'menuurl', title: '菜单路径', hide: true }
+                , { field: 'orderid', title: '菜单排序', hide: true }
+                , { field: 'menuico', title: '菜单图标', hide: true }
+                , { field: 'Isfather', title: '是否父菜单', hide: true }
+                , { field: 'IsShow', title: '状态', templet: '#switchTpl', unresize: true }
+                , { fixed: 'right', title: '操作', toolbar: '#barDemo' }
+            ]],
+            style: 'margin-top:0;'
         });
 
-
-        // 添加 分类
-        $('.add').on('click', function () {
-            layObj.dialog('dialog.html')
-        });
-
-        //监听状态 更改
-        form.on('switch(switchTest)', function (obj) {
-            console.log(obj.elem.checked, '改变状态')
-
-            let id = obj.othis.parent().attr('data-id');
-            let status = obj.elem.checked ? 1 : 0;
+        //监听状态操作
+        form.on('switch(ShowDemo)', function (data) {
+            var swithcData = data;
+            var id = data.value;// 获取要修改的ID
+            var IsShow = this.checked ? '启用' : '停用';// 当前状态值
             $.ajax({
-                url: '{:u("admin/change")}?id=' + id + '&status=' + status,
-                success: (res) => {
-
+                type: 'post',
+                url: '/api/menuApi/postUpdMenu',
+                data: {
+                    "id": id,
+                    "IsShow": IsShow
+                },
+                error: function (data) {
+                    console.log(data);
+                    layer.msg('数据异常，操作失败！');
+                },
+                // 修改失败，请填写对应的参数
+                success: function (data) {
+                    layer.alert("操作成功", {
+                        icon: 6
+                    });
+                    //window.location.reload();
                 }
             });
+        });
+
+        //监听行工具事件
+        treeTable.on('tool(menu)', function (obj) {
+            var data = obj.data;
+            //console.log(obj)
+            if (obj.event === 'del') {
+                layer.confirm('真的删除行么', function (index) {
+                    //var id = data['id'];
+                    var param = { id: data['id'] };
+                    $.ajax({
+                        type: 'post',
+                        url: '/api/menuApi/postDeleMenu',
+                        async: false,
+                        data: param,
+                        success: function (data) {
+                        }
+                    })
+                    layer.msg('已删除数据!', { icon: 1, time: 1000 });
+                    setTimeout('window.location.reload()', 1000);
+                    //alert(id);
+                });
+            } else if (obj.event === 'edit') {
+                //xadmin.open('修改用户', '/User/UserUpd?id=' + data['id'], 600, 400);//flag=edit&id=
+                layer.open({
+                    type: 2,
+                    title: "修改菜单",
+                    shadeClose: true,
+                    shade: 0.5,
+                    area: ['600px', '600px'],
+                    content: ['/menu/menuOper?flag=edit&id=' + data['id'], 'no'],
+                    //end: function () { location.reload(); }
+                })
+            }
+        });
+
+        // 搜索
+        $('#search').click(function () {
+            var keywords = $('#demoReload').val();
+            if (keywords) {
+                insTb.filterData(keywords);
+            } else {
+                insTb.clearFilter();
+            }
             return false;
         });
 
+        // 全部展开
+        $('#btnExpandAll').click(function () {
+            insTb.expandAll();
+        });
 
-        function editCls(that, id, type) { // 分类修改  type 是 1 顶级  2级  3级
-            let name = $(that).val();
-            if (!name && (type == 1 || type == 2)) {
-                return layObj.msg('分类名称不能为空')
-            }
-            if (!name && type == 3) { // 演示 应该放到修改回调中  进行处理
-                return $(that).parent().remove()
-            }
-            let   url = '{:u("admin/edit")}?id=' + id + '&name=' + name
-            layObj.get(url,  (res) =>{
-                if (name && res) {
-                    $(that).val(name)
-                }
-            })
-            $.ajax({
-                url: '{:u("admin/edit")}?id=' + id + '&name=' + name,
-                success(res) {
-                    if (name && res) {
-                        $(that).val(name)
-                    }
-                }
-            })
-        }
+        // 全部折叠
+        $('#btnFoldAll').click(function () {
+            insTb.foldAll();
+        });
 
-        // 删除二级分类
-        $('.del-child').on('click', function () {
-            let ptype = $(this).attr('data-ptype'); // fu
-            let id = $(this).attr('data-id'); // fu
-            let msg = '';
-            if (ptype == 1) { // 等级类目
-                msg = '一';
-            } else if (ptype == 2) {
-                msg = '二';
-            }
-            layObj.box(`是否删除${msg}级分类`, () => {
-                let   url = '{:u("admin/del")}?id=' + id
-                layObj.get(url,  (res) =>{
-                    $(this).parent().remove()
-                })
-
+        $("#OpenMenuAdd").click(function () {
+            //alert(1);
+            //var url = "{:url('/menu/menuAdd')}";
+            layer.open({
+                type: 2,
+                title: "添加菜单",
+                shadeClose: true,
+                shade: 0.5,
+                area: ['600px', '600px'],
+                content: ['/menu/menuOper?flag=add', 'no'],
+                //end: function () { location.reload(); }
             })
         })
-
-        $('.changeSort').on('change',function () {
-            let id = $(this).attr('data-id');
-            let val = $(this).val();
-
-            if(!val){
-                return;
-            }
-            // let url = '{:u("admin/sort")}?id=' + id + '&sort='+val;
-            let url = 'http:www.baidu.com';
-            layObj.get(url,function (res) {
-                console.log(res, 'sort');
-            })
-
-        })
-    })
+    });
 </script>
 </body>
 </html>
