@@ -61,14 +61,17 @@ class LoginService
         Session::set(config('app.login_user_info'), json_encode($adminUserInfo));
 
         throw new SuccessMessage([
+            'code' => 0,
             'msg' => '登录成功'
         ]);
     }
 
-    public function loginOut(){
+    public function loginOut()
+    {
         Session::delete(config('app.login_user_info'));
 
         throw new SuccessMessage([
+            'code' => 0,
             'msg' => '退出成功'
         ]);
     }

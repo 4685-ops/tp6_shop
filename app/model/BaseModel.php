@@ -17,6 +17,16 @@ class BaseModel extends Model
         return [];
     }
 
+    public function getListByWhere($where, $order, $page = 1, $limit = 10)
+    {
+        $offset = ($page - 1) * $limit;
+        $data = self::where($where)->order($order)->limit($offset, $limit)->select();
+        if ($data) {
+            return $data->toArray();
+        }
+        return [];
+    }
+
     public function addRow(array $data)
     {
         return self::insert($data, true);
