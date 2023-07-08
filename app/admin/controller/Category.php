@@ -17,13 +17,18 @@ class Category extends AdminBase
         $this->categoryService = new CategoryService();
     }
 
-    public function index()
+    public function index(): string
     {
         return View::fetch('/category/index');
     }
 
     public function getData()
     {
-        $this->categoryService->getData();
+        return $this->categoryService->getData();
+    }
+
+    public function add(): string
+    {
+        return View::fetch('/category/add');
     }
 }

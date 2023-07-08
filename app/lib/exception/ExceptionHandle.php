@@ -46,6 +46,7 @@ class ExceptionHandle extends Handle
         $result = [
             'msg' => $this->msg,
             'error_code' => $this->errorCode,
+            'code' => $this->code,
             'request_url' => $request = $request->url()
         ];
 

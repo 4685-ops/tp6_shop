@@ -8,12 +8,12 @@ use think\facade\Session;
 
 class Index extends AdminBase
 {
-    public function index()
+    public function index(): string
     {
         return View::fetch('/index/index');
     }
 
-    public function welcome()
+    public function welcome(): string
     {
         return View::fetch('/index/welcome');
     }
