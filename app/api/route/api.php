@@ -9,6 +9,10 @@ Route::rule('/send/code', '/api/sms/send', 'POST');
 Route::rule('/login', '/api/login/login', 'POST');
 
 //资源路由
-Route::rule('/user', '/api/user/index','get');
+Route::rule('/user', '/api/user/index', 'get');
 
-Route::rule('/update', '/api/user/update','POST');
+Route::rule('/update', '/api/user/update', 'POST');
+
+
+// 获取分类
+Route::rule('/category/get_data', '/api/category/getData', 'GET');

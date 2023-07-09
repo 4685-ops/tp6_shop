@@ -1,148 +1,33 @@
-<?php /*a:1:{s:62:"D:\phpstudy_pro\WWW\tp6_shop\app\admin\view\index\welcome.html";i:1687859764;}*/ ?>
+<?php /*a:1:{s:62:"D:\phpstudy_pro\WWW\tp6_shop\app\admin\view\index\welcome.html";i:1688801129;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>主页一</title>
+    <title>layuiAdmin 控制台主页一</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/static/admin/lib/layui-v2.5.4/css/layui.css" media="all">
-    <link rel="stylesheet" href="/static/admin/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
-    <link rel="stylesheet" href="/static/admin/css/public.css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/static/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/layuiadmin/style/admin.css" media="all">
 </head>
-<style>
-    .layui-top-box {
-        padding: 40px 20px 20px 20px;
-        color: #fff
-    }
-
-    .panel {
-        margin-bottom: 17px;
-        background-color: #fff;
-        border: 1px solid transparent;
-        border-radius: 3px;
-        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-        box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
-    }
-
-    .panel-body {
-        padding: 15px
-    }
-
-    .panel-title {
-        margin-top: 0;
-        margin-bottom: 0;
-        font-size: 14px;
-        color: inherit
-    }
-
-    .label {
-        display: inline;
-        padding: .2em .6em .3em;
-        font-size: 75%;
-        font-weight: 700;
-        line-height: 1;
-        color: #fff;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: baseline;
-        border-radius: .25em;
-        margin-top: .3em;
-    }
-
-    .layui-red {
-        color: red
-    }
-
-    .main_btn > p {
-        height: 40px;
-    }
-</style>
 <body>
-<div class="layuimini-container">
-    <div class="layuimini-main layui-top-box">
-        <div class="layui-row layui-col-space10">
 
-            <div class="layui-col-md3">
-                <div class="col-xs-6 col-md-3">
-                    <div class="panel layui-bg-cyan">
-                        <div class="panel-body">
-                            <div class="panel-title">
-                                <span class="label pull-right layui-bg-blue">实时</span>
-                                <h5>用户统计</h5>
-                            </div>
-                            <div class="panel-content">
-                                <h1 class="no-margins">1234</h1>
-                                <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i> 1234
-                                </div>
-                                <small>当前分类总记录数</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="layui-col-md3">
-                <div class="col-xs-6 col-md-3">
-                    <div class="panel layui-bg-blue">
-                        <div class="panel-body">
-                            <div class="panel-title">
-                                <span class="label pull-right layui-bg-cyan">实时</span>
-                                <h5>商品统计</h5>
-                            </div>
-                            <div class="panel-content">
-                                <h1 class="no-margins">1234</h1>
-                                <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i> 1234
-                                </div>
-                                <small>当前分类总记录数</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="layui-col-md3">
-                <div class="col-xs-6 col-md-3">
-                    <div class="panel layui-bg-green">
-                        <div class="panel-body">
-                            <div class="panel-title">
-                                <span class="label pull-right layui-bg-orange">实时</span>
-                                <h5>浏览统计</h5>
-                            </div>
-                            <div class="panel-content">
-                                <h1 class="no-margins">1234</h1>
-                                <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i> 1234
-                                </div>
-                                <small>当前分类总记录数</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="layui-col-md3">
-                <div class="col-xs-6 col-md-3">
-                    <div class="panel layui-bg-orange">
-                        <div class="panel-body">
-                            <div class="panel-title">
-                                <span class="label pull-right layui-bg-green">实时</span>
-                                <h5>订单统计</h5>
-                            </div>
-                            <div class="panel-content">
-                                <h1 class="no-margins">1234</h1>
-                                <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i> 1234
-                                </div>
-                                <small>当前分类总记录数</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <h1 style="text-align: center;">天下熙熙皆为利来，天下攘攘皆为利往</h1>
         </div>
     </div>
-
 </div>
 
-<script src="/static/admin/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="/static/layuiadmin/layui/layui.js?t=1"></script>
+<script>
+    layui.config({
+        base: '/static/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'console']);
+</script>
 </body>
 </html>
+
