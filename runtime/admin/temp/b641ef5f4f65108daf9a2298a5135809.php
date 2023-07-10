@@ -1,3 +1,4 @@
+<?php /*a:1:{s:60:"E:\phpstudy_pro\WWW\tp6_shop\app\admin\view\index\index.html";i:1688959325;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +7,8 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" href="{__STATIC_ADMIN_PATH__}layuiadmin/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="{__STATIC_ADMIN_PATH__}layuiadmin/style/admin.css" media="all">
+    <link rel="stylesheet" href="/static/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/layuiadmin/style/admin.css" media="all">
 
 
 </head>
@@ -168,7 +169,7 @@
     </div>
 </div>
 
-<script src="{__STATIC_ADMIN_PATH__}layuiadmin/layui/layui.js"></script>
+<script src="/static/layuiadmin/layui/layui.js"></script>
 <script>
     layui.config({
         base: '/static/layuiadmin/' //静态资源所在路径

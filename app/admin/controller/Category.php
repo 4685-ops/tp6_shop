@@ -31,4 +31,9 @@ class Category extends AdminBase
     {
         return View::fetch('/category/add');
     }
+
+    public function dialog()
+    {
+        return View::fetch('/category/dialog');
+    }
 }
